@@ -1,7 +1,9 @@
+import React from "react";
 import { easing } from "maath";
 import { useSnapshot } from "valtio";
 import { useFrame } from "@react-three/fiber";
 import { Decal, useGLTF, useTexture } from "@react-three/drei";
+
 import state from "../store";
 
 const Shirt = () => {
@@ -20,7 +22,7 @@ const Shirt = () => {
   return (
     <group key={stateString}>
       <mesh
-        cashShadow
+        castShadow
         geometry={nodes.T_Shirt_male.geometry}
         material={materials.lambert1}
         material-roughness={1}
@@ -34,6 +36,7 @@ const Shirt = () => {
             map={fullTexture}
           />
         )}
+
         {snap.isLogoTexture && (
           <Decal
             position={[0, 0.04, 0.15]}
